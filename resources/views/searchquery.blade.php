@@ -95,10 +95,10 @@
                 </div>
             @endforeach
         </div>
-        <button class="button-secondary">{{__('Pokaż mniej trafne rezultaty')}}</button>      
+        <button class="button-secondary">{{__('Pokaż mniej trafne rezultaty')}}</button>
         @else
         <div class="empty-box">
-            <h2>brak rezultatów</h2>
+            <h2>{{__('brak rezultatów')}}</h2>
             <img src="{{ asset('img/no-results.svg') }}">
         </div>
         @endif

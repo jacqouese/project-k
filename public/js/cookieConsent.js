@@ -13,9 +13,8 @@ cookieButton.addEventListener("click", () => {
 });
 
 setTimeout(() => {
-    if(!localStorage.getItem("cookieBannerDisplayed")) {
+    if(!localStorage.getItem("cookieBannerDisplayed"))
         cookieBanner.classList.add("active");
-    }
 }, 2000);
 //
 
@@ -25,18 +24,10 @@ helpButton.addEventListener("click", () => {
     localStorage.setItem("helpBannerDisplayed", "true");
 });
 
-//sometimes eventListener doesn't work, it will need to be corrected
-function removeHelp() {
-    helpBanner.classList.remove("active");
-    localStorage.setItem("helpBannerDisplayed", "true");
-};
-
 setTimeout(() => {
-    if (!localStorage.getItem("helpBannerDisplayed")) {
+    if (!localStorage.getItem("helpBannerDisplayed"))
         helpBanner.classList.add("active");
-    }
 }, 2000);
-//
 
 function showHelp() {
     helpContentContainer.classList.add("active");

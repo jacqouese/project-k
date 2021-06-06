@@ -13,6 +13,7 @@
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <!-- SWUP -->
     <script src="{{ asset('js/swup.js') }}" defer></script>
     <script src="{{ asset('js/swupScriptsPlugin.min.js') }}" defer></script>
     <script src="{{ asset('js/swupFormsPlugin.min.js') }}" defer></script>
@@ -22,7 +23,7 @@
 <body>
     <noscript>
         <div class="noscript">
-            Strona wymaga JavaScript do poprawnego działania.
+            {{__('Strona wymaga JavaScript do poprawnego działania.')}}
         </div>
     </noscript>
     <header>
@@ -34,12 +35,12 @@
                 <li>
                     <div class="header-language">
                         <img
-                         src="{{ asset('img/ico_pl.png') }}"
-                         data-pl="{{ asset('img/ico_pl.png') }}"
-                         data-en="{{ asset('img/ico_us.png') }}"
-                         data-de="{{ asset('img/ico_ge.png') }}"
-                         class="language-flag"
-                         id="language-main-flag"
+                            src="{{ asset('img/ico_pl.png') }}"
+                            data-pl="{{ asset('img/ico_pl.png') }}"
+                            data-en="{{ asset('img/ico_us.png') }}"
+                            data-de="{{ asset('img/ico_ge.png') }}"
+                            class="language-flag"
+                            id="language-main-flag"
                         >
                         <div id="langauge-dropdown">
                             <a href="/pl">
@@ -82,15 +83,12 @@
         <div class="help-content">
             <span class="iconify" id="help-btn-content" data-icon="bi:x" data-inline="false" onclick="hideHelp()"></span>
             <h1>{{__('Jak to działa?')}}</h1>
-            <p>{{__('Na naszej stronie masz dwie możliwości wyszukiwana hoteli')}}</p>
-            <p>{{__('1. Jeśli nie masz jeszcze upatrzonego noclegu, to wybierz opcje ')}}<a href="{{url(app()->getLocale()).'/'}}" onclick="hideHelp()">{{__('znajdź')}}</a></p>
-            <p>{{__('2. Jeśli zastanawiasz się na kilkoma hotelami użyj opcji ')}}<a href="{{url(app()->getLocale()).'/'}}" onclick="hideHelp()">{{__('szukaj')}}</a>{{__(', która pozwoli ci na wyszukanie noclegu wpisując jego nazwę')}}</p>
-            <p>{{__('Wybierając pierwszą opcje na ')}}<a href="{{url(app()->getLocale()).'/'}}" onclick="hideHelp()">{{__('stronie głównej')}}</a>{{__(' ujrzysz pole wyszukiwana')}}</p>
-            <p>{{__('W tym polu znajduje się 6 kategorii, są to: plaże, rowery miejskie, tereny rekracyjne, place zabaw, wybiegi dla psów oraz standard noclegu.')}}</p>
-            <p>{{__('Abyśmy byli w stanie znaleźć nocleg dopasowany do Twoich preferencji, zaznacz przy użyciu suwaka w poszczególnych kategoriach jak istotne są one dla Ciebie. Im bardziej w góre przesuniesz suwak tym bardziej dana kategoria będzie uwzględniona podczas wyszukiania')}}</p>
-            <p>{{__('Na górze strony ')}}<a href="{{url(app()->getLocale()).'/'}}" onclick="hideHelp()">{{__('głównej')}}</a>{{__(' znajduje się pole wyszukiwania.')}}</p>
-            <p>{{__('W tym polu znajduje się 6 kategorii, są to: plaże, rowery miejskie, parki, place zabaw, wybiegi dla psów oraz standard.')}}</p>
-            <p>{{__('Abyśmy byli w stanie znaleźć nocleg dopasowany do Twoich preferencji musisz zaznaczyć w poszczególnych kategoriach jak istotne są one dla Ciebie. Możesz to zrobić klikając na daną kategorię oraz wybrać numer od 1 do 5, gdzie 5 oznacza bardzo istotne a 1 nieistotne lub bez znaczenia abyśmy nie brali danej kategorii pod uwagę.')}}</p>
+            <p>{{__('Na naszej stronie masz dwie możliwości wyszukiwana hoteli:')}}</p>
+            <p>{{__('1. Jeśli nie jesteś jeszcze zdecydowany, to wybierz opcję ')}}<a href="{{url(app()->getLocale()).'/'}}" onclick="hideHelp()">{{__('znajdź.')}}</a></p>
+            <p>{{__('2. Jeśli zastanawiasz się nad kilkoma hotelami użyj opcji ')}}<a href="{{url(app()->getLocale()).'/'}}" onclick="hideHelp()">{{__('szukaj')}}</a>{{__(', która pozwoli Ci na wyszukanie noclegu wpisując jego nazwę.')}}</p>
+            <p>{{__('Wybierając pierwszą opcje na ')}}<a href="{{url(app()->getLocale()).'/'}}" onclick="hideHelp()">{{__('stronie głównej')}}</a>{{__(' ujrzysz pole wyszukiwana.')}}</p>
+            <p>{{__('W tym polu znajduje się 6 kategorii, są to: plaże, rowery miejskie, tereny rekreacyjne, place zabaw, wybiegi dla psów oraz standard noclegu.')}}</p>
+            <p>{{__('Abyśmy byli w stanie znaleźć nocleg dopasowany do Twoich preferencji, zaznacz przy użyciu suwaka w poszczególnych kategoriach jak istotne są one dla Ciebie. Im bardziej w góre przesuniesz suwak tym bardziej dana kategoria będzie uwzględniona podczas wyszukiwania.')}}</p>
             <p>{{__('Gdy już wszystko wybierzesz kliknij "szukaj" a my zajmiemy się resztą i przekierujemy Ciebie na stronę wyników.')}}</p>
             <p>{{__('Powodzenia!')}}</p>
         </div>
@@ -98,12 +96,6 @@
     <script data-swup-ignore-script src="{{ asset('js/cookieConsent.js') }}"></script>
     <footer>
         <div class="footer-container">
-            <div class="footer-item">
-                <h1>{{__('Przydatne Linki')}}</h1>
-                <p><a href="{{url(app()->getLocale()).'/'}}">{{__('Strona główna')}}</a></p>
-                <p><a href="http://www.kolobrzeg.pl/" target="_blank" rel="noreferrer noopener">{{__('Portal UM Kołobrzeg')}}</a></p>
-                <p><a href="http://www.opendata.gis.kolobrzeg.pl/" target="_blank" rel="noreferrer noopener">{{__('Kołobrzeskie Otwarte Dane')}}</a></p>
-            </div>
             <div class="footer-item">
                 <h1>{{__('Informacje')}}</h1>
                 <p><a href="{{url(app()->getLocale()).'/about'}}">{{__('O Nas')}}</a></p>
@@ -116,6 +108,18 @@
                 <p><a href="{{url(app()->getLocale()).'/maps?type=recreation'}}">{{__('Mapa Terenów Rekreacyjnych')}}</a></p>
                 <p><a href="{{url(app()->getLocale()).'/maps?type=playground'}}">{{__('Mapa Placów Zabaw')}}</a></p>
                 <p><a href="{{url(app()->getLocale()).'/maps?type=dog'}}">{{__('Mapa Wybiegów dla Psów')}}</a></p>
+            </div>
+            <div class="footer-item">
+                <h1>{{__('Przydatne Linki')}}</h1>
+                <p><a href="{{url(app()->getLocale()).'/'}}">{{__('Strona główna')}}</a></p>
+                <p><a href="http://www.kolobrzeg.pl/" target="_blank" rel="noreferrer noopener">{{__('Portal UM Kołobrzeg')}}</a></p>
+                <p><a href="http://www.opendata.gis.kolobrzeg.pl/" target="_blank" rel="noreferrer noopener">{{__('Kołobrzeskie Otwarte Dane')}}</a></p>
+            </div>
+            <div class="footer-item">
+                <h1>{{__('Języki')}}</h1>
+                <p><a href="/pl">polski</a></p>
+                <p><a href="/en">English</a></p>
+                <p><a href="/de">Deutsch</a></p>
             </div>
             <div class="footer-item">
                 <h1>{{__('Kontakt')}}</h1>
