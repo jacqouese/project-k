@@ -38,6 +38,8 @@ Route::get('{lang}/search',[Results::class, 'getResults'])->name('search');
 
 Route::get('{lang}/search/{id}',[Results::class, 'singleResult'])->name('searchID');
 
+Route::get('{lang}/searchquery',[Results::class, 'searchquery'])->name('searchquery');
+
 Route::get('{lang}/about', function ($lang) {
     handleLocale ($lang);
     return view('about');
@@ -57,3 +59,8 @@ Route::get('{lang}/maps', function ($lang) {
     handleLocale ($lang);
     return view('maps');
 })->name('maps');
+
+Route::get('{lang}/{url}', function ($lang) {
+    handleLocale ($lang);
+    return view('404');
+})->name('404');

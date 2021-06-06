@@ -25,6 +25,14 @@ a {
           text-decoration-color: #606060;
 }
 
+.noscript {
+  z-index: 10000;
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+  background-color: white;
+}
+
 header {
   z-index: 1000;
   width: 100%;
@@ -170,6 +178,12 @@ html.is-animating .transition-search-container {
   height: 88px;
 }
 
+#searchfield {
+  width: 90%;
+  border: none;
+  outline: none;
+}
+
 .home-search {
   position: relative;
   width: 100%;
@@ -242,11 +256,6 @@ html.is-animating .transition-search-container {
   top: 12px;
 }
 
-.search-container p {
-  font-size: 12px;
-  color: #00385e;
-}
-
 .searchbar {
   height: 60px;
   width: 930px;
@@ -301,6 +310,10 @@ html.is-animating .transition-search-container {
   color: #00385e;
 }
 
+.yellow-star {
+  color: #e7d000;
+}
+
 #beach-icon {
   font-size: 14px;
   padding-bottom: 2px;
@@ -343,13 +356,16 @@ html.is-animating .transition-search-container {
   height: -moz-fit-content;
   height: fit-content;
   width: 125px;
-  min-height: 100px;
+  min-height: 200px;
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding-top: 25px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 35px;
   gap: 4px;
   background-color: white;
   border: 1px #f4f9fc solid;
@@ -363,27 +379,65 @@ html.is-animating .transition-search-container {
   display: flex;
 }
 
-.filter-dropdown .filter-value {
-  padding: 6px 0 6px 0;
-}
-
-.filter-dropdown div {
-  padding-left: 35px;
-  border-radius: 20px;
-  border: 1px white solid;
-  cursor: pointer;
-}
-
-.filter-dropdown div:hover {
-  border: 1px #f4f9fc solid;
-}
-
 .searchbar-standard .filter-text .filter-label {
   font-size: 9px;
 }
 
 .searchbar-standard .filter-text .filter-value {
   font-size: 11px;
+}
+
+.outer-slider {
+  min-height: 110px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  font-size: 7px;
+}
+
+.range-slider .input-range {
+  height: 4px;
+  width: 110px;
+  border-radius: 5px;
+  outline: none;
+  -webkit-writing-mode: bt-lr;
+      -ms-writing-mode: bt-lr;
+          writing-mode: bt-lr;
+  /* IE */
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.range-value {
+  position: absolute;
+  margin-left: 65px;
+  color: #00385e;
+}
+
+.input-range::-webkit-slider-thumb {
+  width: 15px;
+  /* Set a specific slider handle width */
+  height: 15px;
+  /* Slider handle height */
+  cursor: pointer;
+}
+
+::-moz-range-track {
+  background: #000;
+  border: 0;
+}
+
+input::-moz-focus-inner {
+  border: 0;
+}
+
+.slider-p {
+  font-size: 9px;
+  color: #b1b1b1;
 }
 
 .search-mobile {
@@ -613,7 +667,9 @@ html.is-animating .transition-search-container {
   font-weight: 500;
 }
 
-.feature-text p, .feature-text a, .feature-text a:visited {
+.feature-text p,
+.feature-text a,
+.feature-text a:visited {
   color: #606060;
   text-decoration: none;
 }
@@ -749,7 +805,6 @@ html.is-animating .transition-search-container {
 }
 
 .listing-name div .iconify {
-  color: #e7d000;
   margin-right: -3px;
 }
 
@@ -818,6 +873,14 @@ p.listing-type {
 
 .feature-greenery p {
   color: #5fa340;
+}
+
+.feature-lighthouse {
+  background-color: rgba(75, 136, 191, 0.5);
+}
+
+.feature-lighthouse p {
+  color: #4b88bf;
 }
 
 .listing-bottom {
@@ -975,6 +1038,16 @@ p.listing-type {
   padding: 30px 30px;
   border-radius: 20px;
   background-color: white;
+}
+
+.single-stars {
+  position: absolute;
+  top: 40px;
+  right: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2px;
 }
 
 .single-left-distances {
@@ -1690,6 +1763,41 @@ a:visited {
   text-decoration: none;
 }
 
+.empty-box {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 50px 200px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.empty-box h1,
+.empty-box h2 {
+  font-weight: 500;
+}
+
+.empty-box img {
+  width: 500px;
+  max-width: 100%;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
 @media all and (max-width: 500px) {
   .home-search {
     margin-bottom: 175px;
@@ -1697,7 +1805,8 @@ a:visited {
   .home-search h1 {
     font-size: 48px;
   }
-  .home-search button, .home-search a {
+  .home-search button,
+  .home-search a {
     display: block;
     padding: 5px 30px;
     font-size: 24px;
@@ -1866,7 +1975,8 @@ a:visited {
     width: 100%;
     gap: 0;
   }
-  .info-title, .info-title-about {
+  .info-title,
+  .info-title-about {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1877,14 +1987,16 @@ a:visited {
     width: 100%;
     padding-left: 12%;
   }
-  .info-title div h1, .info-title-about div h1 {
+  .info-title div h1,
+  .info-title-about div h1 {
     font-size: 48px;
   }
   .info-title-about {
     left: -25%;
     padding: 0;
   }
-  .info-top, .info-top-about {
+  .info-top,
+  .info-top-about {
     gap: 0;
     margin-top: 500px;
   }
@@ -2063,6 +2175,7 @@ a:visited {
     -o-border-radius: 0;
     padding-top: 0;
   }
+
   .footer-container {
     -ms-flex-line-pack: center;
         align-content: center;

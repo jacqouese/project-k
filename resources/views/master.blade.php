@@ -20,15 +20,27 @@
 </head>
 
 <body>
+    <noscript>
+        <div class="noscript">
+            Strona wymaga JavaScript do poprawnego działania.
+        </div>
+    </noscript>
     <header>
         <div class="header-logo"><a href="{{url(app()->getLocale()).'/'}}">KołobrzegHotele</a></div>
         <div class="header-links">
             <ul>
-                <li>{{__('szukaj')}}</li>
-                <li>{{__('lokalizacje')}}</li>
+                <li><a href="{{url(app()->getLocale()).'/'}}">{{__('znajdź')}}</a></li>
+                <li><a href="{{url(app()->getLocale()).'/searchquery'}}">{{__('szukaj')}}</a></li>
                 <li>
                     <div class="header-language">
-                        <img src="{{ asset('img/ico_pl.png') }}" class="language-flag" id="language-main-flag">
+                        <img
+                         src="{{ asset('img/ico_pl.png') }}"
+                         data-pl="{{ asset('img/ico_pl.png') }}"
+                         data-en="{{ asset('img/ico_us.png') }}"
+                         data-de="{{ asset('img/ico_ge.png') }}"
+                         class="language-flag"
+                         id="language-main-flag"
+                        >
                         <div id="langauge-dropdown">
                             <a href="/pl">
                                 <div>
@@ -70,6 +82,12 @@
         <div class="help-content">
             <span class="iconify" id="help-btn-content" data-icon="bi:x" data-inline="false" onclick="hideHelp()"></span>
             <h1>{{__('Jak to działa?')}}</h1>
+            <p>{{__('Na naszej stronie masz dwie możliwości wyszukiwana hoteli')}}</p>
+            <p>{{__('1. Jeśli nie masz jeszcze upatrzonego noclegu, to wybierz opcje ')}}<a href="{{url(app()->getLocale()).'/'}}" onclick="hideHelp()">{{__('znajdź')}}</a></p>
+            <p>{{__('2. Jeśli zastanawiasz się na kilkoma hotelami użyj opcji ')}}<a href="{{url(app()->getLocale()).'/'}}" onclick="hideHelp()">{{__('szukaj')}}</a>{{__(', która pozwoli ci na wyszukanie noclegu wpisując jego nazwę')}}</p>
+            <p>{{__('Wybierając pierwszą opcje na ')}}<a href="{{url(app()->getLocale()).'/'}}" onclick="hideHelp()">{{__('stronie głównej')}}</a>{{__(' ujrzysz pole wyszukiwana')}}</p>
+            <p>{{__('W tym polu znajduje się 6 kategorii, są to: plaże, rowery miejskie, tereny rekracyjne, place zabaw, wybiegi dla psów oraz standard noclegu.')}}</p>
+            <p>{{__('Abyśmy byli w stanie znaleźć nocleg dopasowany do Twoich preferencji, zaznacz przy użyciu suwaka w poszczególnych kategoriach jak istotne są one dla Ciebie. Im bardziej w góre przesuniesz suwak tym bardziej dana kategoria będzie uwzględniona podczas wyszukiania')}}</p>
             <p>{{__('Na górze strony ')}}<a href="{{url(app()->getLocale()).'/'}}" onclick="hideHelp()">{{__('głównej')}}</a>{{__(' znajduje się pole wyszukiwania.')}}</p>
             <p>{{__('W tym polu znajduje się 6 kategorii, są to: plaże, rowery miejskie, parki, place zabaw, wybiegi dla psów oraz standard.')}}</p>
             <p>{{__('Abyśmy byli w stanie znaleźć nocleg dopasowany do Twoich preferencji musisz zaznaczyć w poszczególnych kategoriach jak istotne są one dla Ciebie. Możesz to zrobić klikając na daną kategorię oraz wybrać numer od 1 do 5, gdzie 5 oznacza bardzo istotne a 1 nieistotne lub bez znaczenia abyśmy nie brali danej kategorii pod uwagę.')}}</p>
@@ -105,7 +123,6 @@
             </div>
         </div>
     </footer>
-    <script src="{{ asset('js/accuracyBars.js') }}"></script>
     <script src="{{ asset('js/searchDetails.js') }}"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous"></script>
@@ -115,5 +132,4 @@
     <script src="{{ asset('js/homeLoading.js') }}" defer></script>
 
 </body>
-
 </html>
