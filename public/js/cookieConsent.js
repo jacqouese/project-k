@@ -3,7 +3,6 @@ const cookieButton = document.getElementById("cookie-btn");
 
 const helpBanner = document.querySelector(".help-banner");
 const helpButton = document.getElementById("help-btn");
-
 const helpContentContainer = document.getElementById("helpContentContainer");
 
 //cookie
@@ -19,11 +18,6 @@ setTimeout(() => {
 //
 
 //help
-helpButton.addEventListener("click", () => {
-    helpBanner.classList.remove("active");
-    localStorage.setItem("helpBannerDisplayed", "true");
-});
-
 setTimeout(() => {
     if (!localStorage.getItem("helpBannerDisplayed"))
         helpBanner.classList.add("active");
@@ -35,4 +29,9 @@ function showHelp() {
 
 function hideHelp() {
     helpContentContainer.classList.remove("active");
+}
+
+function hideHelpBanner() {
+    helpBanner.classList.remove("active");
+    localStorage.setItem("helpBannerDisplayed", "true");
 }

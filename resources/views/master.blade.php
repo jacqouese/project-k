@@ -75,7 +75,7 @@
         <button class="button-primary" id="cookie-btn">{{__(('Rozumiem'))}}</button>
     </div>
     <div class="help-banner">
-        <span class="iconify" id="help-btn" data-icon="bi:x" data-inline="false"></span>
+        <span class="iconify" id="help-btn" data-icon="bi:x" data-inline="false" onclick="hideHelpBanner()"></span>
         <p>{{__('Jesteś tu nowy?')}}<br />{{__('Sprawdź jak to działa.')}}</p>
         <button class="button-primary" onclick="showHelp()">{{__('Pomoc')}}</button>
     </div>
