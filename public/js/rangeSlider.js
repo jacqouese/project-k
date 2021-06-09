@@ -33,17 +33,19 @@ ranges.forEach((range) => {
     }
   }
 
+  var translations = document.querySelector('.slider-translations');
+  
   if(range.value < 10) {
-    show = 'bez znaczenia'
+    show = translations.getAttribute('one');
   }
   if(range.value > 10) {
-    show = 'przydatne'
+    show = translations.getAttribute('two');
   }
   if(range.value > 25) {
-    show = 'ważne'
+    show = translations.getAttribute('three');
   }
   if(range.value > 40) {
-    show = 'bardzo ważne'
+    show = translations.getAttribute('four');
   }
 
   var value = range.parentNode.parentNode.querySelector('.range-value');
@@ -52,18 +54,42 @@ ranges.forEach((range) => {
 
   range.addEventListener('input', function(){
     if(this.value < 10) {
-      show = 'bez znaczenia'
+      show = translations.getAttribute('one');
     }
     if(this.value > 10) {
-      show = 'przydatne'
+      show = translations.getAttribute('two');
     }
     if(this.value > 25) {
-      show = 'ważne'
+      show = translations.getAttribute('three');
     }
     if(this.value > 40) {
-      show = 'bardzo ważne'
+      show = translations.getAttribute('four');
     }
       value.innerHTML = show;
   }); 
-})
+});
 
+var checkboxesURL = document.querySelectorAll('.standard-checkbox');
+var standardValue = document.querySelector('.filter-end-value-s');
+
+checkboxesURL.forEach((check) => {
+  var att = check.getAttribute('name');
+  if (att == 'hotel') {
+    if (urlParams.get('hotel') != null) {
+      check.checked = true;
+      standardValue.innerHTML = standardValue.getAttribute('chosen');
+    }
+  }
+  else if (att == 'san') {
+    if (urlParams.get('san') != null) {
+      check.checked = true;
+      standardValue.innerHTML = standardValue.getAttribute('chosen');
+    }
+  }
+  else if (att == 'room') {
+    if (urlParams.get('room') != null) {
+      check.checked = true;
+      standardValue.innerHTML = standardValue.getAttribute('chosen');
+    }
+  }
+});

@@ -64,3 +64,8 @@ Route::get('{lang}/{url}', function ($lang) {
     handleLocale ($lang);
     return view('404');
 })->name('404');
+
+Route::get('{lang}/500', function ($lang) {
+    handleLocale ($lang);
+    return view('500');
+})->name('500');

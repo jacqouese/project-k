@@ -38,7 +38,7 @@
                                     @endif
                                 </div>
                                 <a href="{{ url(app()->getLocale()).'/search/'.$item['_id'] }}">
-                                <h3>{{$name}}</h3>
+                                <h3>{{__($name)}}</h3>
                                 </a>
                             </div>
                             <div class="listing-features">
@@ -85,7 +85,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button class="button-secondary">{{__('więcej')}}</button>
+                                <a href="{{ url(app()->getLocale()).'/search/'.$item['_id'] }}"><button class="button-secondary">{{__('więcej')}}</button></a>
                             </div>
                         </div>
                         <div class="listing-active-bottom">

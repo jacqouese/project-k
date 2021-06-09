@@ -141,58 +141,13 @@
         </div>
     </div>
     <div class="links">
-        @if($param == "dog")
         <div class="links-bottom-txt">
             <h1>{{__('Inne mapy')}}</h1>
-            <p>{{__('Stacje Rowerów Miejskich')}}</p>
-            <p>{{__('Tereny Rekreacyjne')}}</p>
-            <p>{{__('Place Zabaw')}}</p>
+            <div><p>{{__('Stacje Rowerów Miejskich')}}</p><a href="{{url(app()->getLocale()).'/maps?type=bike'}}"><button class="button-secondary">{{__('zobacz')}}</button></a></div>
+            <div><p>{{__('Tereny Rekreacyjne')}}</p><a href="{{url(app()->getLocale()).'/maps?type=recreation'}}"><button class="button-secondary">{{__('zobacz')}}</button></a></div>
+            <div><p>{{__('Place Zabaw')}}</p><a href="{{url(app()->getLocale()).'/maps?type=playground'}}"><button class="button-secondary">{{__('zobacz')}}</button></a></div> 
+            <div><p>{{__('Wybiegi dla Psów')}}</p><a href="{{url(app()->getLocale()).'/maps?type=dog'}}"><button class="button-secondary">{{__('zobacz')}}</button></a></div> 
         </div>
-        <div class="links-bottom-btns">
-            <button class="button-secondary"><a href="{{url(app()->getLocale()).'/maps?type=bike'}}">{{__('zobacz')}}</a></button>
-            <button class="button-secondary"><a href="{{url(app()->getLocale()).'/maps?type=recreation'}}">{{__('zobacz')}}</a></button>
-            <button class="button-secondary"><a href="{{url(app()->getLocale()).'/maps?type=playground'}}">{{__('zobacz')}}</a></button>
-        </div>
-        @endif
-        @if($param == 'playground')
-        <div class="links-bottom-txt">
-            <h1>{{__('Inne mapy')}}</h1>
-            <p>{{__('Stacje Rowerów Miejskich')}}</p>
-            <p>{{__('Tereny Rekreacyjne')}}</p>
-            <p>{{__('Wybiegi dla Psów')}}</p>
-        </div>
-        <div class="links-bottom-btns">
-            <button class="button-secondary"><a href="{{url(app()->getLocale()).'/maps?type=bike'}}">{{__('zobacz')}}</a></button>
-            <button class="button-secondary"><a href="{{url(app()->getLocale()).'/maps?type=recreation'}}">{{__('zobacz')}}</a></button>
-            <button class="button-secondary"><a href="{{url(app()->getLocale()).'/maps?type=dog'}}">{{__('zobacz')}}</a></button>
-        </div>
-        @endif
-        @if($param == "recreation")
-        <div class="links-bottom-txt">
-            <h1>{{__('Inne mapy')}}</h1>
-            <p>{{__('Stacje Rowerów Miejskich')}}</p>
-            <p>{{__('Wybiegi dla Psów')}}</p>
-            <p>{{__('Place Zabaw')}}</p>
-        </div>
-        <div class="links-bottom-btns">
-            <button class="button-secondary"><a href="{{url(app()->getLocale()).'/maps?type=bike'}}">{{__('zobacz')}}</a></button>
-            <button class="button-secondary"><a href="{{url(app()->getLocale()).'/maps?type=dog'}}">{{__('zobacz')}}</a></button>
-            <button class="button-secondary"><a href="{{url(app()->getLocale()).'/maps?type=playground'}}">{{__('zobacz')}}</a></button>
-        </div>
-        @endif
-        @if($param == "bike")
-        <div class="links-bottom-txt">
-            <h1>{{__('Inne mapy')}}</h1>
-            <p>{{__('Tereny Rekreacyjne')}}</p>
-            <p>{{__('Wybiegi dla Psów')}}</p>
-            <p>{{__('Place Zabaw')}}</p>
-        </div>
-        <div class="links-bottom-btns">
-            <button class="button-secondary"><a href="{{url(app()->getLocale()).'/maps?type=recreation'}}">{{__('zobacz')}}</a></button>
-            <button class="button-secondary"><a href="{{url(app()->getLocale()).'/maps?type=dog'}}">{{__('zobacz')}}</a></button>
-            <button class="button-secondary"><a href="{{url(app()->getLocale()).'/maps?type=playground'}}">{{__('zobacz')}}</a></button>
-        </div>
-        @endif
     </div>
 </section>
 <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?setLang=pl&setMkt=pl-PL' async defer></script>

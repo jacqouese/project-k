@@ -49,10 +49,18 @@ function searchbarDropdown() {
             });
         });
 
+        //for standard
+        var standardBox = document.querySelector(".searchbar-standard");
+        var standardDropdown = document.querySelectorAll(".filter-dropdown-standard");
+        var valueToChangeStandard = standardBox.querySelectorAll(".filter-end-value");
+        
+        //for all
         //hides the active dropdown if clicks outside of the dropdown
         document.addEventListener('click', (event) => {
             if(event.target.closest(".filter-dropdown")) return;
             if(event.target.closest(".searchbar-filter")) return;
+            if(event.target.closest(".searchbar-standard")) return;
+            if(event.target.closest(".filter-dropdown-standard")) return;
 
             if (dropdownActive == 1) {
                 dropdowns.forEach((dropdown) => {
@@ -61,9 +69,42 @@ function searchbarDropdown() {
                     filterIcons.forEach((filterIcon) => {
                         IconCloseAnimation(filterIcon);
                     });
-                })
+                });
+                standardDropdown[0].classList.remove("trigger-flex");
+                
             }
         });
+
+
+        
+        //for standard
+        standardBox.addEventListener('click', (event) => {
+        var dropdown = standardBox.querySelectorAll(".filter-dropdown-standard");
+        var filterIcon = standardBox.querySelectorAll(".filter-icon");
+        if (dropdown[0].classList.contains("trigger-flex")) {
+            if(event.target.closest(".filter-text")) {
+                var filterIcons = document.querySelectorAll(".filter-icon");
+                filterIcons.forEach((filterIcon) => {
+                    IconCloseAnimation(filterIcon);
+                });
+                standardDropdown[0].classList.remove("trigger-flex");
+            }
+        }
+        else {
+            dropdown[0].classList.add("trigger-flex");
+            var checkboxes = standardBox.querySelectorAll(".standard-checkbox");
+            
+            gsap.from(dropdown[0], {duration: 0.5, opacity: '0.3', y: '-10px', ease: 'expo'})
+            gsap.to(filterIcon[0], {duration: 0.5, y: '-9px', x: '5px', transform: 'scale(0.7)', ease: 'slowmo'})
+            dropdownActive = 1;
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('input', () => {
+                    valueToChangeStandard[0].innerHTML = valueToChangeStandard[0].getAttribute('chosen');
+                });
+            })  
+        }
+        });
+    
     }
 }
 

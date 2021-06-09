@@ -13,6 +13,7 @@
         <p class="search-p transition-search-text">{{__('Zaznacz co jest dla ciebie najważniejsze, a my znajdziemy twój idealny nocleg.')}}</p>
         @include('searchbar')
     </div>
+    <a href="https://en.wikipedia.org/wiki/Ko%C5%82obrzeg#/media/File:Ko%C5%82obrzeg,_wej%C5%9Bcie_do_portu_-_panoramio.jpg" id="licence">{{__('źródło zdjęcia oraz licencja')}}</a>
 </section>
 <div class="features-container">
     <div class="feature-both">

@@ -17,6 +17,5 @@ const swup = new Swup({
     window.scrollTo({top: 0, behavior: 'smooth'});
 
     //reload scripts that otherwise don't work
-    searchDetails(url);
     searchbarDropdown(url);
   });

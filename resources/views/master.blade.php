@@ -5,10 +5,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ asset('img/logo.png') }}">
     <title>@yield('title')</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css?version=5') }}" rel="stylesheet">
     <!-- Icons -->
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <!-- GSAP -->
@@ -17,7 +18,7 @@
     <script src="{{ asset('js/swup.js') }}" defer></script>
     <script src="{{ asset('js/swupScriptsPlugin.min.js') }}" defer></script>
     <script src="{{ asset('js/swupFormsPlugin.min.js') }}" defer></script>
-    <script src="{{ asset('js/swupTransitions.js') }}" defer></script>
+    <script src="{{ asset('js/swupTransitions.js?version=2') }}" defer></script>
 </head>
 
 <body>
@@ -43,17 +44,17 @@
                             id="language-main-flag"
                         >
                         <div id="langauge-dropdown">
-                            <a href="/pl">
+                            <a data-no-swup href="/pl">
                                 <div>
                                     <img src="{{ asset('img/ico_pl.png') }}" class="language-flag" alt="language">polski
                                 </div>
                             </a>
-                            <a href="/en">
+                            <a data-no-swup href="/en">
                                 <div>
                                     <img src="{{ asset('img/ico_us.png') }}" class="language-flag" alt="language">English
                                 </div>
                             </a>
-                            <a href="/de">
+                            <a data-no-swup href="/de">
                                 <div>
                                     <img src="{{ asset('img/ico_ge.png') }}" class="language-flag" alt="language">Deutsch
                                 </div>
@@ -87,13 +88,13 @@
             <p>{{__('1. Jeśli nie jesteś jeszcze zdecydowany, to wybierz opcję ')}}<a href="{{url(app()->getLocale()).'/'}}" onclick="hideHelp()">{{__('znajdź.')}}</a></p>
             <p>{{__('2. Jeśli zastanawiasz się nad kilkoma hotelami użyj opcji ')}}<a href="{{url(app()->getLocale()).'/'}}" onclick="hideHelp()">{{__('szukaj')}}</a>{{__(', która pozwoli Ci na wyszukanie noclegu wpisując jego nazwę.')}}</p>
             <p>{{__('Wybierając pierwszą opcje na ')}}<a href="{{url(app()->getLocale()).'/'}}" onclick="hideHelp()">{{__('stronie głównej')}}</a>{{__(' ujrzysz pole wyszukiwana.')}}</p>
-            <p>{{__('W tym polu znajduje się 6 kategorii, są to: plaże, rowery miejskie, tereny rekreacyjne, place zabaw, wybiegi dla psów oraz standard noclegu.')}}</p>
+            <p>{{__('W tym polu znajduje się 6 kategorii, są to: plaże, rowery miejskie, tereny rekreacyjne, place zabaw, wybiegi dla psów oraz rodzaj noclegu.')}}</p>
             <p>{{__('Abyśmy byli w stanie znaleźć nocleg dopasowany do Twoich preferencji, zaznacz przy użyciu suwaka w poszczególnych kategoriach jak istotne są one dla Ciebie. Im bardziej w góre przesuniesz suwak tym bardziej dana kategoria będzie uwzględniona podczas wyszukiwania.')}}</p>
             <p>{{__('Gdy już wszystko wybierzesz kliknij "szukaj" a my zajmiemy się resztą i przekierujemy Ciebie na stronę wyników.')}}</p>
             <p>{{__('Powodzenia!')}}</p>
         </div>
     </div>
-    <script data-swup-ignore-script src="{{ asset('js/cookieConsent.js') }}"></script>
+    <script data-swup-ignore-script src="{{ asset('js/cookieConsent.js?version=2') }}"></script>
     <footer>
         <div class="footer-container">
             <div class="footer-item">
@@ -123,17 +124,16 @@
             </div>
             <div class="footer-item">
                 <h1>{{__('Kontakt')}}</h1>
-                <p><a href="mailto: kontakt@kontakt.com">kontakt@kontakt.com</a></p>
+                <p><a href="mailto: kontakt@jakubdev.vxm.pl">kontakt@jakubdev.vxm.pl</a></p>
             </div>
         </div>
     </footer>
-    <script src="{{ asset('js/searchDetails.js') }}"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
 
-    <script src="{{ asset('js/searchbarDropdown.js') }}"></script>
-    <script src="{{ asset('js/homeLoading.js') }}" defer></script>
+    <script src="{{ asset('js/searchbarDropdown.js?version=3') }}"></script>
+    <script src="{{ asset('js/homeLoading.js?version=2') }}" defer></script>
 
 </body>
 </html>

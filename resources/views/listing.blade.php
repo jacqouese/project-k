@@ -17,7 +17,7 @@
                     @endfor
                 </div>
             <div class="single-map">
-                <div id="my-map" x="{{$results['x']}}" y="{{$results['y']}}" style="position:relative;width:700px;height:500px;"></div>
+                <div id="my-map" x="{{$results['x']}}" y="{{$results['y']}}" xTemp="{{$results['from_bike']['x']}}" yTemp="{{$results['from_bike']['y']}}" style="position:relative;width:700px;height:500px;"></div>
             </div>
             <p>{{$results['adrespelny'].", ".$results['kod_pocz']." ".$results['miejscowosc']}}</p>
             <div class="single-left-distances">
@@ -48,16 +48,16 @@
                 <div>
                     <div>
                         <span class="iconify" data-icon="maki:park-11" data-inline="false"></span>
-                        <p>{{ $results['from_park']['distance'] }} min {{__('do parku')}}</p>
+                        <p>{{ $results['from_park']['distance'] }} min {{__('do terenu rekreacyjnego')}}</p>
                     </div>
                     <div class="div-buttons">
-                        <a onclick="GetMap({{$results['from_park']['x']}}, {{$results['from_park']['y']}}, 'park');" class="btn btn-mini">
+                        <a onclick="GetMap({{$results['from_park']['x']}}, {{$results['from_park']['y']}}, 'teren rekreacyjny');" class="btn btn-mini">
                             <div class="div-1">{{__('pokaż')}}</div>
                             <div class="div-2">{{__('na mapie')}}</div>
                         </a>
                         <a href="{{url(app()->getLocale()).'/maps?type=recreation'}}" class="btn btn-mini">
                             <div class="div-1">{{__('wszystkie')}}</div>
-                            <div class="div-2">{{__('parki')}}</div>
+                            <div class="div-2">{{__('tereny')}}</div>
                         </a>
                     </div>
                 </div>
@@ -150,7 +150,7 @@
     </div>
 </section>
 
-<script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&setLang=pl&setMkt=pl-PL&key=ArnGjMKK1i1pqfVUfvKGlq33gKNMEgcV5wFmJ3L2QLm65AgaekhL44ZlGvAktUQ_' async defer></script>
+<script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&setLang=pl&setMkt=pl-PL&key=ArnGjMKK1i1pqfVUfvKGlq33gKNMEgcV5wFmJ3L2QLm65AgaekhL44ZlGvAktUQ_' async defer></script>
 <script type="text/javascript" src="{{ asset('js/singleMap.js') }}"></script>
 
 @endsection

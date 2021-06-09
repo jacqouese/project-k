@@ -37,7 +37,7 @@
                                     @endif
                                 </div>
                                 <a href="{{ url(app()->getLocale()).'/search/'.$item['_id'] }}">
-                                <h3>{{$name}}</h3>
+                                <h3>{{__($name)}}</h3>
                                 </a>
                             </div>
                             <div class="listing-features">
@@ -61,14 +61,36 @@
                             </div>
                             <div class="listing-bottom">
                                 <div class="listing-bottom-icons">
-                                    <div>
-                                        <span class="iconify" data-icon="fa-solid:umbrella-beach" data-inline="false" id="beach-icon"></span>
-                                        <p>{{ $item['from_sea'] }} min {{__('do plaży')}}</p>
-                                    </div>
-                                    <div>
-                                        <span class="iconify" data-icon="cil:bike" data-inline="false"></span>
-                                        <p>{{ $item['from_bike'] }} min {{__('do rowerów')}}</p>
-                                    </div>
+                                    @if ($item['showOne'][1] == 'sea' || $item['showTwo'][1] == 'sea')
+                                        <div>
+                                            <span class="iconify" data-icon="fa-solid:umbrella-beach" data-inline="false" id="beach-icon"></span>
+                                            <p>{{ $item['from_sea'] }} min {{__('do plaży')}}</p>
+                                        </div>
+                                    @endif
+                                    @if ($item['showOne'][1] == 'bike' || $item['showTwo'][1] == 'bike')
+                                        <div>
+                                            <span class="iconify" data-icon="cil:bike" data-inline="false"></span>
+                                            <p>{{ $item['from_bike'] }} min {{__('do rowerów')}}</p>
+                                        </div>
+                                    @endif
+                                    @if ($item['showOne'][1] == 'park' || $item['showTwo'][1] == 'park')
+                                        <div>
+                                            <span class="iconify" data-icon="maki:park-11" data-inline="false"></span>
+                                            <p>{{ $item['from_park'] }} min {{__('do terenu rekreacyjnego')}}</p>
+                                        </div>
+                                    @endif
+                                    @if ($item['showOne'][1] == 'playground' || $item['showTwo'][1] == 'playground')
+                                        <div>
+                                            <span class="iconify" data-icon="map:playground" data-inline="false"></span>
+                                            <p>{{ $item['from_playground'] }} min {{__('do placu zabaw')}}</p>
+                                        </div>
+                                    @endif
+                                    @if ($item['showOne'][1] == 'dogpark' || $item['showTwo'][1] == 'dogpark')
+                                        <div>
+                                            <span class="iconify" data-icon="fluent:animal-dog-20-filled" data-inline="false"></span>
+                                            <p>{{ $item['from_dogpark'] }} min {{__('do wybiegu dla psów')}}</p>
+                                        </div>
+                                    @endif
                                     <div class="listing-bottom-icons-dropdown">
                                         <div>
                                             <span class="iconify" data-icon="maki:park-11" data-inline="false"></span>
@@ -84,7 +106,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button class="button-secondary">{{__('więcej')}}</button>
+                                <a href="{{ url(app()->getLocale()).'/search/'.$item['_id'] }}"><button class="button-secondary">{{__('więcej')}}</button></a>
                             </div>
                         </div>
                         <div class="listing-active-bottom">
@@ -94,7 +116,9 @@
                 </div>
             @endforeach
         </div>
-        <button class="button-secondary">{{__('Pokaż mniej trafne rezultaty')}}</button>
+        @if ($limit != 16)
+            <a data-no-swup href={{ add_query_params(['limit' => 2]) }}><button class="button-secondary">{{__('Pokaż mniej trafne rezultaty')}}</button></a>
+        @endif
     </section>
 </div>
 

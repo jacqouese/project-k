@@ -7,10 +7,10 @@ if (url == "" || url == "search" || url == "/" || url == "search/" || url == "se
     var image = document.getElementById("main-image");
     var newImage = image.getAttribute("data-src");
 
-    image.src = newImage
+    image.src = newImage 
 }
 
-if (url == "") {
+if (url == "" || url == "/") {
     gsap.registerPlugin(ScrollTrigger);
     var features = document.querySelectorAll(".feature-both");
 
@@ -52,6 +52,5 @@ if (url == "") {
 
     });
 }
-
 
 
