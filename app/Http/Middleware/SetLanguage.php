@@ -15,8 +15,14 @@ class SetLanguage
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
-    {
-        \App::setLocale(Session()->get('applocale'));
+    {   
+        $lang = $request->lang;
+        if ($lang == 'pl' || $lang == 'en' || $lang == 'de') {
+            \App::setlocale($lang);
+        }
+        else {
+            \App::setlocale('pl');
+        }
         return $next($request);
     }
 }

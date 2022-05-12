@@ -15,22 +15,11 @@ use App\Http\Controllers\Results;
 */
 
 
-//sets the right language(temporary, will change if any time is left)
-function handleLocale ($lang) {
-    if ($lang == 'pl' || $lang == 'en' || $lang == 'de') {
-        App::setlocale($lang);
-    }
-    else {
-        App::setlocale('pl');
-    }
-}
-
 //redirects to pl if no language given
 Route::redirect('/', '/pl');
 
 //routes for all pages
-Route::get('{lang}/', function ($lang) {
-    handleLocale ($lang);
+Route::get('{lang}/', function () {
     return view('home');
 })->name('home');
 
@@ -40,32 +29,26 @@ Route::get('{lang}/search/{id}',[Results::class, 'singleResult'])->name('searchI
 
 Route::get('{lang}/searchquery',[Results::class, 'searchquery'])->name('searchquery');
 
-Route::get('{lang}/about', function ($lang) {
-    handleLocale ($lang);
+Route::get('{lang}/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('{lang}/cookies', function ($lang) {
-    handleLocale ($lang);
+Route::get('{lang}/cookies', function () {
     return view('cookies');
 })->name('cookies');
 
-Route::get('{lang}/privacy', function ($lang) {
-    handleLocale ($lang);
+Route::get('{lang}/privacy', function () {
     return view('privacy');
 })->name('privacy');
 
-Route::get('{lang}/maps', function ($lang) {
-    handleLocale ($lang);
+Route::get('{lang}/maps', function () {
     return view('maps');
 })->name('maps');
 
-Route::get('{lang}/{url}', function ($lang) {
-    handleLocale ($lang);
+Route::get('{lang}/{url}', function () {
     return view('404');
 })->name('404');
 
-Route::get('{lang}/500', function ($lang) {
-    handleLocale ($lang);
+Route::get('{lang}/500', function () {
     return view('500');
 })->name('500');
