@@ -2,7 +2,7 @@
 
 ### Accommodation search website for tourists
 
-# Notice
+## Notice
 
 ```diff
 - The API utilized by the website has sadly been shut down
