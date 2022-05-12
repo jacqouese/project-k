@@ -10,11 +10,12 @@
             <img src="{{ asset('img/port-low-res.png') }}" data-src="{{ asset('img/port.png') }}" id="main-image">
         </div>
         <div class="search-container">
-            @include('searchbar')
+            @include('searchfield')
         </div>
     </section>
 
     <section class="search-results-container">
+        @if ($results != null)
         <div class="search-results-container-inner">
             @foreach ($results as $item)
             @php
@@ -61,36 +62,14 @@
                             </div>
                             <div class="listing-bottom">
                                 <div class="listing-bottom-icons">
-                                    @if ($item['showOne'][1] == 'sea' || $item['showTwo'][1] == 'sea')
-                                        <div>
-                                            <span class="iconify" data-icon="fa-solid:umbrella-beach" data-inline="false" id="beach-icon"></span>
-                                            <p>{{ $item['from_sea'] }} min {{__('do plaży')}}</p>
-                                        </div>
-                                    @endif
-                                    @if ($item['showOne'][1] == 'bike' || $item['showTwo'][1] == 'bike')
-                                        <div>
-                                            <span class="iconify" data-icon="cil:bike" data-inline="false"></span>
-                                            <p>{{ $item['from_bike'] }} min {{__('do rowerów')}}</p>
-                                        </div>
-                                    @endif
-                                    @if ($item['showOne'][1] == 'park' || $item['showTwo'][1] == 'park')
-                                        <div>
-                                            <span class="iconify" data-icon="maki:park-11" data-inline="false"></span>
-                                            <p>{{ $item['from_park'] }} min {{__('do terenu rekreacyjnego')}}</p>
-                                        </div>
-                                    @endif
-                                    @if ($item['showOne'][1] == 'playground' || $item['showTwo'][1] == 'playground')
-                                        <div>
-                                            <span class="iconify" data-icon="map:playground" data-inline="false"></span>
-                                            <p>{{ $item['from_playground'] }} min {{__('do placu zabaw')}}</p>
-                                        </div>
-                                    @endif
-                                    @if ($item['showOne'][1] == 'dogpark' || $item['showTwo'][1] == 'dogpark')
-                                        <div>
-                                            <span class="iconify" data-icon="fluent:animal-dog-20-filled" data-inline="false"></span>
-                                            <p>{{ $item['from_dogpark'] }} min {{__('do wybiegu dla psów')}}</p>
-                                        </div>
-                                    @endif
+                                    <div>
+                                        <span class="iconify" data-icon="fa-solid:umbrella-beach" data-inline="false" id="beach-icon"></span>
+                                        <p>{{ $item['from_sea'] }} min {{__('do plaży')}}</p>
+                                    </div>
+                                    <div>
+                                        <span class="iconify" data-icon="cil:bike" data-inline="false"></span>
+                                        <p>{{ $item['from_bike'] }} min {{__('do rowerów')}}</p>
+                                    </div>
                                     <div class="listing-bottom-icons-dropdown">
                                         <div>
                                             <span class="iconify" data-icon="maki:park-11" data-inline="false"></span>
@@ -116,12 +95,17 @@
                 </div>
             @endforeach
         </div>
-        @if ($limit != 16)
-            <a data-no-swup href={{ add_query_params(['limit' => 2]) }}><button class="button-secondary">{{__('Pokaż mniej trafne rezultaty')}}</button></a>
+        <button class="button-secondary">{{__('Pokaż mniej trafne rezultaty')}}</button>
+        @else
+        <div class="empty-box">
+            <h2>{{__('brak rezultatów')}}</h2>
+            <img src="{{ asset('img/no-results.svg') }}">
+        </div>
         @endif
     </section>
 </div>
 
+<script src="{{ asset('js/rangeSlider.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 
