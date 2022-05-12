@@ -8,7 +8,7 @@
 - The API utilized by the website has sadly been shut down
 ```
 
-## Features include:
+## Features include
 
 -   Search for accommodations by specifying your priorities
 -   Find attractions that are close to your accommodation
